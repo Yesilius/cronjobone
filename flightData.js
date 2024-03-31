@@ -118,7 +118,7 @@ export async function deleteAll(supabase) {
     const { data, error } = await supabase
       .from("flights")
       .delete()
-      .eq("originName", "BRU");
+      .eq("destinationName", "EVN");
     if (error) throw new Error("Unable to delete");
   } catch (error) {
     console.log(error);
