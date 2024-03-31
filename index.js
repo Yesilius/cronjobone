@@ -1,14 +1,9 @@
 // Initialize the JS client
 import { createClient } from "@supabase/supabase-js";
-import getFlightData, { deleteAll, uploadFile } from "../flightData.js";
-
+import getFlightData, { deleteAll, uploadFile } from "./flightData.js";
 import express from "express";
-import cron from "node-cron";
-import Screenshot from "../takescreenshot.js";
-import fs from "node:fs";
-import { decode, encode } from "base64-arraybuffer";
-import { isUtf8 } from "node:buffer";
-import postOnInsta from "../instagramActions.js";
+import Screenshot from "./takescreenshot.js";
+import postOnInsta from "./instagramActions.js";
 
 const SUPABASE_URL = "https://szybwngkjvxwgrclfinc.supabase.co";
 
