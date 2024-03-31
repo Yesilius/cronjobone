@@ -1,4 +1,5 @@
 import puppeteer from "puppeteer-core";
+import dotenv from "dotenv";
 
 let num = 1;
 
@@ -10,7 +11,15 @@ const clip = {
 };
 async function Screenshot() {
   // Launch the browser and open a new blank page
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    args: [
+      "--disable-setuid-sandbox",
+      "--no-sandbox",
+      "--single-process",
+      "--no-zygote",
+    ],
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+  });
   const page = await browser.newPage();
 
   // Navigate the page to a URL
