@@ -1,6 +1,6 @@
-import puppeteer from "puppeteer-core";
+import puppeteer from "puppeteer";
 import dotenv from "dotenv";
-
+dotenv.config("./env");
 let num = 1;
 
 const clip = {
