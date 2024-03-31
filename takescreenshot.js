@@ -14,7 +14,7 @@ async function Screenshot() {
   const page = await browser.newPage();
 
   // Navigate the page to a URL
-  await page.goto("https://frontend-co5zbukg0-yesilius-projects.vercel.app/");
+  await page.goto("https://frontend-qzefdfpq4-yesilius-projects.vercel.app/");
 
   // Set screen size
   await page.setViewport({ width: 1920, height: 1080 });
