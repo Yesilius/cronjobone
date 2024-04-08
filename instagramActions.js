@@ -14,9 +14,7 @@ export default async function postOnInsta(data) {
       } ${emojiFlags.countryCode("AM").emoji}`
   );
   const text = ` Check out our deals!
-    ${dataText[0]},
-    ${dataText[1]},
-    ${dataText[2]},
+    ${dataText.map((texter) => texter)}
 
     Contact us for more info!
     `;
