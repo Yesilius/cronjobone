@@ -23,7 +23,6 @@ export default async function postOnInsta(data) {
 
   await client.login().catch((e) => console.log(e.message));
   await client
-    .uploadPhoto({ photo: photo, caption: `${text}`, post: "feed" })
+    .uploadPhoto({ photo: photo, caption: "", post: "feed" })
     .catch((e) => console.log(e.message));
-  console.log("Succesfully uploaded to Insta");
 }
