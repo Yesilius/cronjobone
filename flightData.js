@@ -1,3 +1,12 @@
+import { createClient } from "@supabase/supabase-js";
+import { decode } from "base64-arraybuffer";
+
+const SUPABASE_URL = "https://szybwngkjvxwgrclfinc.supabase.co";
+
+const SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6eWJ3bmdranZ4d2dyY2xmaW5jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA3MDI2MzIsImV4cCI6MjAyNjI3ODYzMn0.n9ZGpftf6XJc9EK-hWUXILtzrD7R0vMqjtgWZKMkqW4";
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 export default async function getFlightData(days) {
   // const departureDate = "2024-04-03"
   // const returnDate = "2024-04-03"
@@ -98,14 +107,10 @@ export default async function getFlightData(days) {
 //market:"BE"
 //locale:"nl-NL"
 
-export async function uploadFile(supabase) {
-  const file = fs.readFileSync("./images/screenshot-1.jpg", (err, data) => {
-    if (err) console.log(err);
-    return data;
-  });
+export async function uploadFile(file) {
   const { data, error } = await supabase.storage
     .from("images-flight")
-    .update("/flights12", file, { contentType: "image/jpg" });
+    .update("/flights12", decode(file), { contentType: "image/jpg" });
   if (error) {
     console.log(error);
   } else {

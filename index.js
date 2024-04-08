@@ -69,9 +69,4 @@ async function cronJobOne() {
   // 1. Fetch Data 2. Wait 2 minutes for DB to update 3. visit front end webpage 4. screenshot
 }
 
-app.get("/", (req, res) => {
-  cronJobOne();
-  res.send("Cron Job one");
-});
-
-app.listen(3000, () => console.log("Server Ready on Port 3000"));
+cronJobOne();
